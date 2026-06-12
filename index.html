@@ -4,8 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
   <title id="pageTitle">Kampanya Fırsatı</title>
-  <meta name="facebook-domain-verification" content="ltt9dng4fc87p9kbup0aqdu0o2khf8" />
-  
+ 
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Rubik:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <script>
@@ -97,6 +96,14 @@ const firebaseConfig = {
   <noscript id="fb-noscript"></noscript>
 
   <style>
+
+  .logo-gradient {
+  background: linear-gradient(to right, var(--brand-600), #000000);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+}
     body { font-family: 'Montserrat', sans-serif; background-color: #f9fafb; padding-bottom: 80px;}
     .input-error-message { display: none; align-items: center; gap: 6px; margin-top: 4px; font-size: 12px; color: #ef4444; font-weight: 500; }
     .input-error-message.show { display: flex; }
@@ -366,7 +373,7 @@ const firebaseConfig = {
             <i class="fa-solid fa-bars text-xl"></i>
         </button>
         
-            <h1 class="text-xl font-bold bg-gradient-to-r from-brand-600 to-black bg-clip-text text-transparent" id="headerLogo">LOGO</h1>
+            <h1 class="text-xl font-bold logo-gradient" id="headerLogo">LOGO</h1>
         
         <nav class="flex items-center space-x-3">
             <a href="#" class="text-brand-600 text-2xl"><i class="fab fa-instagram"></i></a>
@@ -1057,8 +1064,8 @@ if (settings.heroImage) {
         warningBanner.querySelector('i').className = 'fa-solid fa-circle-check text-green-500 text-lg mt-0.5';
         warningTitle.innerText = 'Siparişe Hazırsınız'; warningTitle.className = 'font-bold text-sm text-green-700';
         warningMessage.innerText = 'Harika! Siparişi onaylayabilirsiniz.';
-        submitBtn.disabled = false; submitBtn.className = 'w-full bg-brand-600 hover:bg-brand-700 text-white font-bold py-4 px-6 rounded-lg transition-colors shadow-md'; submitBtn.innerHTML = 'Siparişi Tamamla <i class="fa-solid fa-arrow-right ml-2"></i>';
-        stickyBtn.className = 'bg-gradient-to-r from-brand-600 to-black text-white shadow-lg px-6 py-2 rounded-full font-bold transition-all text-sm hover:scale-105'; stickyBtn.innerText = 'Siparişi Tamamla';
+submitBtn.disabled = false; submitBtn.className = 'w-full btn-brand-solid font-bold py-4 px-6 rounded-lg transition-colors shadow-md'; submitBtn.innerHTML = 'Siparişi Tamamla <i class="fa-solid fa-arrow-right ml-2"></i>';
+        stickyBtn.className = 'btn-brand-gradient shadow-lg px-6 py-2 rounded-full font-bold transition-all text-sm hover:scale-105'; stickyBtn.innerText = 'Siparişi Tamamla';
       }
 
       let total = 0; summaryDiv.innerHTML = '';
