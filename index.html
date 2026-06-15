@@ -4,33 +4,32 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
   <title id="pageTitle">Kampanya Fırsatı</title>
-  
-  
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Rubik:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
   <script>
-  tailwind.config = {
-    theme: {
-      extend: {
-        colors: {
-          brand: {
-            50: 'var(--brand-50)',
-            100: 'var(--brand-100)',
-            200: 'var(--brand-200)',
-            300: 'var(--brand-300)',
-            400: 'var(--brand-400)',
-            500: 'var(--brand-500)',
-            600: 'var(--brand-600)',
-            700: 'var(--brand-700)',
-            800: 'var(--brand-800)',
-            900: 'var(--brand-900)'
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: 'var(--brand-50)',
+              100: 'var(--brand-100)',
+              200: 'var(--brand-200)',
+              300: 'var(--brand-300)',
+              400: 'var(--brand-400)',
+              500: 'var(--brand-500)',
+              600: 'var(--brand-600)',
+              700: 'var(--brand-700)',
+              800: 'var(--brand-800)',
+              900: 'var(--brand-900)'
+            }
           }
         }
       }
     }
-  }
-</script>
-<script src="https://cdn.tailwindcss.com"></script>
+  </script>
+  <script src="https://cdn.tailwindcss.com"></script>
 
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 
@@ -43,14 +42,14 @@
         const { initializeApp } = await import("https://www.gstatic.com/firebasejs/10.8.1/firebase-app.js");
         const { getFirestore, doc, getDoc } = await import("https://www.gstatic.com/firebasejs/10.8.1/firebase-firestore.js");
         
-const firebaseConfig = {
-  apiKey: "AIzaSyDkiaFXEp-Xhyhus454x1iVCqUV_6_9cC8",
-  authDomain: "fatih1453-4d8e8.firebaseapp.com",
-  projectId: "fatih1453-4d8e8",
-  storageBucket: "fatih1453-4d8e8.firebasestorage.app",
-  messagingSenderId: "815352580007",
-  appId: "1:815352580007:web:5f8023db7e7b57e3c51882"
-};
+        const firebaseConfig = {
+          apiKey: "AIzaSyDkiaFXEp-Xhyhus454x1iVCqUV_6_9cC8",
+          authDomain: "fatih1453-4d8e8.firebaseapp.com",
+          projectId: "fatih1453-4d8e8",
+          storageBucket: "fatih1453-4d8e8.firebasestorage.app",
+          messagingSenderId: "815352580007",
+          appId: "1:815352580007:web:5f8023db7e7b57e3c51882"
+        };
         
         const app = initializeApp(firebaseConfig, 'pixelApp');
         const db = getFirestore(app);
@@ -124,7 +123,7 @@ const firebaseConfig = {
     .btn-brand-solid:hover { background-color: var(--brand-700) !important; }
     .btn-brand-gradient { background: linear-gradient(to right, var(--brand-600), #000000) !important; color: white !important; }
 
-    body { font-family: 'Montserrat', sans-serif; background-color: #f9fafb; padding-bottom: 80px;}
+    body { font-family: 'Montserrat', sans-serif; background-color: #f9fafb; padding-bottom: 80px; }
     .input-error-message { display: none; align-items: center; gap: 6px; margin-top: 4px; font-size: 12px; color: #ef4444; font-weight: 500; }
     .input-error-message.show { display: flex; }
     .custom-input.error, .custom-select.error { border-color: #ef4444 !important; background: rgba(239, 68, 68, 0.02) !important; }
@@ -202,7 +201,7 @@ const firebaseConfig = {
       transition: all 0.2s;
       border: none;
     }
-   .fav-btn:hover, .fav-btn.active { background: var(--brand-600); color: white; transform: scale(1.05); }
+    .fav-btn:hover, .fav-btn.active { background: var(--brand-600); color: white; transform: scale(1.05); }
    
     .card-image-wrap {
       position: relative;
@@ -294,6 +293,7 @@ const firebaseConfig = {
     }
     .card-cta:hover { transform: translateY(-1px); box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25); }
     .card-cta:active { transform: scale(0.98); }
+    .card-cta:disabled { opacity: 0.7; cursor: not-allowed; }
 
     .stock-badge {
       display: inline-flex;
@@ -316,7 +316,149 @@ const firebaseConfig = {
       50% { opacity: 0.4; }
     }
 
-    .stars { color: #fbbf24; font-size: 10px; letter-spacing: 1px; }
+    /* ============================================
+       TRENDYOL TARZI - Sosyal Kanıt (Hızlı Teslimat)
+       ============================================ */
+    .additional-info {
+      margin-top: 4px;
+    }
+    .static-social-proof-wrapper {
+      display: flex;
+      align-items: center;
+    }
+    .social-proof {
+      display: flex;
+      align-items: center;
+      width: 100%;
+    }
+    .social-proof--static {
+      background-color: #f0faf5;
+      border-radius: 4px;
+      padding: 4px 6px;
+      border: 1px solid #d1f0e0;
+    }
+    .social-proof-content {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .social-proof-content .emoji {
+      font-size: 12px;
+      line-height: 1;
+      flex-shrink: 0;
+    }
+    .social-proof-content .description {
+      font-size: 11px;
+      color: #666;
+      line-height: 1.3;
+      font-weight: 400;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .social-proof-content .green {
+      color: #0b8a5a;
+      font-weight: 600;
+    }
+
+    /* ============================================
+       TRENDYOL TARZI - Değerlendirme / Yıldız Puanı
+       ============================================ */
+    .review-rating {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      margin-top: 4px;
+      flex-wrap: nowrap;
+    }
+    .review-rating .average-rating {
+      font-size: 12px;
+      font-weight: 700;
+      color: #333;
+      line-height: 1;
+      flex-shrink: 0;
+    }
+    .review-rating .rating-stars-container {
+      display: flex;
+      align-items: center;
+      gap: 1px;
+      flex-shrink: 0;
+    }
+    .review-rating .star-wrapper {
+      position: relative;
+      width: 10px;
+      height: 10px;
+      display: inline-block;
+      flex-shrink: 0;
+    }
+    .review-rating .star-empty {
+      display: block;
+      width: 10px;
+      height: 10px;
+      opacity: 0.4;
+    }
+    .review-rating .star-full-wrapper {
+      position: absolute;
+      top: 0;
+      left: 0;
+      overflow: hidden;
+      height: 100%;
+    }
+    .review-rating .star-full {
+      display: block;
+      width: 10px;
+      height: 10px;
+    }
+    .review-rating .total-count {
+      font-size: 11px;
+      color: #999;
+      font-weight: 400;
+      line-height: 1;
+      flex-shrink: 0;
+      margin-left: 1px;
+    }
+    .review-rating .review-photo {
+      width: 14px;
+      height: 14px;
+      margin-left: 2px;
+      flex-shrink: 0;
+      opacity: 0.7;
+    }
+
+    /* ============================================
+       SSS (Sıkça Sorulan Sorular) Accordion Stilleri
+       ============================================ */
+    .faq-item {
+      border-bottom: 1px solid #f3f4f6;
+      transition: all 0.3s ease;
+    }
+    .faq-item:last-child {
+      border-bottom: none;
+    }
+    .faq-question {
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .faq-question:hover {
+      background-color: var(--brand-50);
+    }
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease, padding 0.4s ease;
+    }
+    .faq-item.active .faq-answer {
+      max-height: 300px;
+    }
+    .faq-item.active .faq-icon {
+      transform: rotate(180deg);
+    }
+    .faq-icon {
+      transition: transform 0.3s ease;
+    }
+    .faq-item.active .faq-question {
+      color: var(--brand-600);
+    }
 
     /* Mobil için özel düzenlemeler */
     @media (max-width: 640px) {
@@ -347,7 +489,7 @@ const firebaseConfig = {
             <i class="fa-solid fa-bars text-xl"></i>
         </button>
         
-            <h1 class="text-xl font-bold logo-gradient" id="headerLogo">LOGO</h1>
+        <h1 class="text-xl font-bold logo-gradient" id="headerLogo">LOGO</h1>
         
         <nav class="flex items-center space-x-3">
             <a href="#" class="text-brand-600 text-2xl"><i class="fab fa-instagram"></i></a>
@@ -501,6 +643,101 @@ const firebaseConfig = {
                     </div>
                 </form>
             </div>
+
+            <!-- Sıkça Sorulanlar Bölümü -->
+            <div class="mt-8 bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden">
+                <div class="p-4 md:p-6 border-b border-gray-100">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 bg-brand-100 rounded-full flex items-center justify-center">
+                            <i class="fa-solid fa-circle-question text-brand-600 text-xl"></i>
+                        </div>
+                        <h2 class="text-xl font-bold text-gray-900" id="faqTitle">Sıkça Sorulanlar</h2>
+                    </div>
+                </div>
+                
+                <div class="divide-y divide-gray-100">
+                    <!-- Soru 1 -->
+                    <div class="faq-item">
+                        <div class="faq-question flex items-center justify-between p-4 md:p-5 select-none" onclick="window.toggleFaq(this)">
+                            <div class="flex items-center gap-3">
+                                <span class="text-xl">🧵</span>
+                                <h3 class="text-sm md:text-base font-semibold text-gray-800">Kumaş Bilgisi</h3>
+                            </div>
+                            <i class="faq-icon fa-solid fa-chevron-down text-gray-400 text-sm"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p class="px-4 md:px-5 pb-4 md:pb-5 pl-12 md:pl-14 text-sm text-gray-600 leading-relaxed">
+                                İki iplik örme kumaştır, mevsimlik kullanıma uygundur.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Soru 2 -->
+                    <div class="faq-item">
+                        <div class="faq-question flex items-center justify-between p-4 md:p-5 select-none" onclick="window.toggleFaq(this)">
+                            <div class="flex items-center gap-3">
+                                <span class="text-xl">🚚</span>
+                                <h3 class="text-sm md:text-base font-semibold text-gray-800">Teslimat Süresi</h3>
+                            </div>
+                            <i class="faq-icon fa-solid fa-chevron-down text-gray-400 text-sm"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p class="px-4 md:px-5 pb-4 md:pb-5 pl-12 md:pl-14 text-sm text-gray-600 leading-relaxed">
+                                Alınan siparişler 2-3 iş günü içerisinde kargoya veriliyor, sürat kargo da tahmini 3 iş günü içerisinde teslim ediyor.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Soru 3 -->
+                    <div class="faq-item">
+                        <div class="faq-question flex items-center justify-between p-4 md:p-5 select-none" onclick="window.toggleFaq(this)">
+                            <div class="flex items-center gap-3">
+                                <span class="text-xl">📦</span>
+                                <h3 class="text-sm md:text-base font-semibold text-gray-800">Sipariş Takip</h3>
+                            </div>
+                            <i class="faq-icon fa-solid fa-chevron-down text-gray-400 text-sm"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p class="px-4 md:px-5 pb-4 md:pb-5 pl-12 md:pl-14 text-sm text-gray-600 leading-relaxed">
+                                Sistemimizde sipariş takip ekranı bulunmadığından sipariş takibinde müşteri hizmetlerimiz yardımcı olacaktır.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Soru 4 -->
+                    <div class="faq-item">
+                        <div class="faq-question flex items-center justify-between p-4 md:p-5 select-none" onclick="window.toggleFaq(this)">
+                            <div class="flex items-center gap-3">
+                                <span class="text-xl">💳</span>
+                                <h3 class="text-sm md:text-base font-semibold text-gray-800">Ödeme Seçeneği</h3>
+                            </div>
+                            <i class="faq-icon fa-solid fa-chevron-down text-gray-400 text-sm"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p class="px-4 md:px-5 pb-4 md:pb-5 pl-12 md:pl-14 text-sm text-gray-600 leading-relaxed">
+                                Kapıda ödeme güvencesiyle gelmektedir.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Soru 5 -->
+                    <div class="faq-item">
+                        <div class="faq-question flex items-center justify-between p-4 md:p-5 select-none" onclick="window.toggleFaq(this)">
+                            <div class="flex items-center gap-3">
+                                <span class="text-xl">🔄</span>
+                                <h3 class="text-sm md:text-base font-semibold text-gray-800">Değişim ve İade</h3>
+                            </div>
+                            <i class="faq-icon fa-solid fa-chevron-down text-gray-400 text-sm"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p class="px-4 md:px-5 pb-4 md:pb-5 pl-12 md:pl-14 text-sm text-gray-600 leading-relaxed">
+                                Değişim seçeneğimiz mevcut değil, 14 gün içerisinde iade hakkı mevcut.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- SSS Sonu -->
         </div>
     </section>
   </main>
@@ -530,6 +767,22 @@ const firebaseConfig = {
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
   <script type="module">
+    // SSS Accordion İşlevi
+    window.toggleFaq = function(element) {
+        const faqItem = element.parentElement;
+        const isActive = faqItem.classList.contains('active');
+        
+        document.querySelectorAll('.faq-item.active').forEach(item => {
+            item.classList.remove('active');
+        });
+        
+        if (!isActive) {
+            faqItem.classList.add('active');
+        }
+    };
+
+    let lastCartTime = 0; // Anti-Spam (Throttle) koruması için zamanlayıcı
+
     function sanitizeInput(input) {
       if (!input) return '';
       return input.replace(/<[^>]*>/g, '').replace(/javascript:/gi, '').replace(/on\w+\s*=/gi, '').replace(/&#/g, '').replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&amp;/g, '&').replace(/['";]/g, '').trim();
@@ -628,50 +881,170 @@ const firebaseConfig = {
     window._hasAutoScrolledToForm = false;
     let ilIlceVerileri = {}; 
 
-    // --- TRACKING API START ---
+    // --- GÜNCELLENMİŞ TRACKING API START ---
     const TrackingAPI = {
       generateEventId() { return 'evt_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9); },
       
       viewContent(product) {
         const eventId = this.generateEventId();
-        const value = Number(product.fiyat);
-        if (typeof fbq === 'function') fbq('track', 'ViewContent', { content_name: product.isim, content_ids: [product.id], content_type: 'product', value: value, currency: 'TRY' }, { eventID: eventId });
-        if (typeof ttq !== 'undefined') ttq.track('ViewContent', { contents: [{ content_id: product.id, content_name: product.isim, quantity: 1, price: value }], content_type: 'product', value: value, currency: 'TRY' }, { event_id: eventId });
+        const value = Number(product.fiyat) || 0;
+        
+        // Meta Pixel (Facebook)
+        if (typeof fbq === 'function') {
+          fbq('track', 'ViewContent', {
+            content_name: product.isim,
+            content_ids: [product.id || ''],
+            content_type: 'product',
+            value: value,
+            currency: 'TRY',
+            content_category: product.kategori || ''
+          }, { eventID: eventId });
+        }
+
+        // TikTok Pixel
+        if (typeof ttq !== 'undefined' && window.TT_PIXEL_ID) {
+          ttq.track('ViewContent', {
+            contents: [{
+              content_id: product.id || '',
+              content_name: product.isim,
+              quantity: 1,
+              price: value
+            }],
+            content_type: 'product',
+            value: value,
+            currency: 'TRY'
+          }, { event_id: eventId });
+        }
       },
 
       addToCart(product) {
         const eventId = this.generateEventId();
-        const value = Number(product.fiyat);
-        if (typeof fbq === 'function') fbq('track', 'AddToCart', { content_name: product.isim, content_ids: [product.id], content_type: 'product', value: value, currency: 'TRY', contents: [{ id: product.id, quantity: 1, item_price: value }] }, { eventID: eventId });
-        if (typeof ttq !== 'undefined') ttq.track('AddToCart', { contents: [{ content_id: product.id, content_name: product.isim, quantity: 1, price: value }], content_type: 'product', value: value, currency: 'TRY' }, { event_id: eventId });
+        const value = Number(product.fiyat) || 0;
+        
+        // Meta Pixel (Facebook)
+        if (typeof fbq === 'function') {
+          fbq('track', 'AddToCart', {
+            content_name: product.isim,
+            content_ids: [product.id || ''],
+            content_type: 'product',
+            value: value,
+            currency: 'TRY',
+            contents: [{
+              id: product.id || '',
+              quantity: 1,
+              item_price: value
+            }]
+          }, { eventID: eventId });
+        }
+
+        // TikTok Pixel
+        if (typeof ttq !== 'undefined' && window.TT_PIXEL_ID) {
+          ttq.track('AddToCart', {
+            contents: [{
+              content_id: product.id || '',
+              content_name: product.isim,
+              quantity: 1,
+              price: value
+            }],
+            content_type: 'product',
+            value: value,
+            currency: 'TRY'
+          }, { event_id: eventId });
+        }
       },
 
       initiateCheckout(cartItems, totalValue) {
         const eventId = this.generateEventId();
-        const fbContents = cartItems.map((item, index) => ({ id: item.id, quantity: 1, item_price: (index > 0 && campaignSettings.active) ? Number(campaignSettings.secondProductPrice) : Number(item.fiyat) }));
-        const ttContents = cartItems.map((item, index) => ({ content_id: item.id, content_name: item.isim, quantity: 1, price: (index > 0 && campaignSettings.active) ? Number(campaignSettings.secondProductPrice) : Number(item.fiyat) }));
         
-        if (typeof fbq === 'function') fbq('track', 'InitiateCheckout', { content_ids: cartItems.map(i => i.id), contents: fbContents, content_type: 'product', value: Number(totalValue), currency: 'TRY', num_items: cartItems.length }, { eventID: eventId });
-        if (typeof ttq !== 'undefined') ttq.track('InitiateCheckout', { contents: ttContents, content_type: 'product', value: Number(totalValue), currency: 'TRY' }, { event_id: eventId });
+        const fbContents = cartItems.map((item, index) => ({
+          id: item.id,
+          quantity: 1,
+          item_price: (index > 0 && campaignSettings.active) ? Number(campaignSettings.secondProductPrice) : Number(item.fiyat)
+        }));
+
+        const ttContents = cartItems.map((item, index) => ({
+          content_id: item.id,
+          content_name: item.isim,
+          quantity: 1,
+          price: (index > 0 && campaignSettings.active) ? Number(campaignSettings.secondProductPrice) : Number(item.fiyat)
+        }));
+
+        // Meta Pixel (Facebook)
+        if (typeof fbq === 'function') {
+          fbq('track', 'InitiateCheckout', {
+            content_ids: cartItems.map(i => i.id),
+            contents: fbContents,
+            content_type: 'product',
+            value: Number(totalValue),
+            currency: 'TRY',
+            num_items: cartItems.length
+          }, { eventID: eventId });
+        }
+
+        // TikTok Pixel
+        if (typeof ttq !== 'undefined' && window.TT_PIXEL_ID) {
+          ttq.track('InitiateCheckout', {
+            contents: ttContents,
+            content_type: 'product',
+            value: Number(totalValue),
+            currency: 'TRY'
+          }, { event_id: eventId });
+        }
       },
 
       purchase(orderId, cartItems, totalValue, customerInfo) {
         const eventId = this.generateEventId();
-        const fbContents = cartItems.map((item, index) => ({ id: item.id, quantity: 1, item_price: (index > 0 && campaignSettings.active) ? Number(campaignSettings.secondProductPrice) : Number(item.fiyat) }));
-        const ttContents = cartItems.map((item, index) => ({ content_id: item.id, content_name: item.isim, quantity: 1, price: (index > 0 && campaignSettings.active) ? Number(campaignSettings.secondProductPrice) : Number(item.fiyat) }));
         
+        const fbContents = cartItems.map((item, index) => ({
+          id: item.id,
+          quantity: 1,
+          item_price: (index > 0 && campaignSettings.active) ? Number(campaignSettings.secondProductPrice) : Number(item.fiyat)
+        }));
+
+        const ttContents = cartItems.map((item, index) => ({
+          content_id: item.id,
+          content_name: item.isim,
+          quantity: 1,
+          price: (index > 0 && campaignSettings.active) ? Number(campaignSettings.secondProductPrice) : Number(item.fiyat)
+        }));
+
+        // Meta Pixel (Facebook)
         if (typeof fbq === 'function') {
-          fbq('set', 'userData', { ph: customerInfo.phone, fn: customerInfo.firstName, ln: customerInfo.lastName, ct: customerInfo.city }, FB_PIXEL_ID);
-          fbq('track', 'Purchase', { content_ids: cartItems.map(i => i.id), contents: fbContents, content_type: 'product', value: Number(totalValue), currency: 'TRY', num_items: cartItems.length, order_id: orderId }, { eventID: eventId });
+          fbq('set', 'userData', {
+            ph: customerInfo.phone || '',
+            fn: customerInfo.firstName || '',
+            ln: customerInfo.lastName || '',
+            ct: customerInfo.city || ''
+          });
+          
+          fbq('track', 'Purchase', {
+            content_ids: cartItems.map(i => i.id),
+            contents: fbContents,
+            content_type: 'product',
+            value: Number(totalValue),
+            currency: 'TRY',
+            num_items: cartItems.length,
+            order_id: orderId
+          }, { eventID: eventId });
         }
-        
-        if (typeof ttq !== 'undefined') {
-          ttq.identify({ phone_number: customerInfo.phone });
-          ttq.track('CompletePayment', { contents: ttContents, content_type: 'product', value: Number(totalValue), currency: 'TRY' }, { event_id: eventId });
+
+        // TikTok Pixel
+        if (typeof ttq !== 'undefined' && window.TT_PIXEL_ID) {
+          ttq.identify({
+            phone_number: customerInfo.phone || ''
+          });
+          
+          ttq.track('CompletePayment', {
+            contents: ttContents,
+            content_type: 'product',
+            value: Number(totalValue),
+            currency: 'TRY',
+            order_id: orderId
+          }, { event_id: eventId });
         }
       }
     };
-    // --- TRACKING API END ---
+    // --- GÜNCELLENMİŞ TRACKING API END ---
 
     async function loadIlIlceData() {
       try {
@@ -785,6 +1158,7 @@ Object.keys(activePalette).forEach(shade => {
           setDomIfExist('heroTitle', settings.heroTitle, true);
           setDomIfExist('heroTag', settings.heroTag);
           setDomIfExist('campaign-desc', settings.heroDescription);
+          setDomIfExist('faqTitle', settings.faqTitle);
 		  
 if (settings.heroImage) {
     const heroImgEl = document.getElementById('heroImage');
@@ -820,7 +1194,9 @@ if (settings.heroImage) {
       }
     }
 
-    window.processAddToCart = (id) => {
+    window.processAddToCart = (btnElement, id) => {
+        if(btnElement && btnElement.disabled) return;
+
         const p = allProducts.find(x => x.id === id);
         if(!p) return;
 
@@ -852,6 +1228,17 @@ if (settings.heroImage) {
         if(!isValid) {
             showToast('Lütfen tüm seçenekleri belirleyin', 'warning');
             return;
+        }
+
+        // Anti-Spam Buton Kilidi
+        if (btnElement) {
+            const originalContent = btnElement.innerHTML;
+            btnElement.disabled = true;
+            btnElement.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i><span class="cta-text ml-1">Bekleyin</span>';
+            setTimeout(() => {
+                btnElement.disabled = false;
+                btnElement.innerHTML = originalContent;
+            }, 800);
         }
 
         window.addToCart(id, selectedVariants.join(' - '));
@@ -914,47 +1301,111 @@ if (settings.heroImage) {
         listDiv.innerHTML += `
           <div class="product-card">
             
-            <div class="card-image-wrap" onclick="window.openLightbox('${p.resim}', '${p.isim.replace(/'/g, "\\'")}', ${p.fiyat})">
+            <div class="card-image-wrap" onclick="window.openLightbox('${p.resim}', '${p.isim.replace(/'/g, "\\'")}', ${p.fiyat}, '${p.id}')">
               ${badgeHTML}
               <button type="button" class="fav-btn" onclick="event.stopPropagation(); this.classList.toggle('active');">
                 <i class="fa-solid fa-heart"></i>
               </button>
               <img src="${p.resim}" alt="${p.isim}" loading="lazy" />
             </div>
+
+            <!-- TRENDYOL TARZI BANNER SWIPER -->
+            <div class="swiper banner-swiper w-full border-b border-gray-100" style="height: 22px; overflow: hidden;">
+                <div class="swiper-wrapper">
+				
+                    <div class="swiper-slide bg-yellow-500 text-white text-center text-[10px] sm:text-xs font-semibold flex items-center justify-center tracking-wider">📦 Şeffaf Kargo</div>
+                    <div class="swiper-slide bg-green-500 text-white text-center text-[10px] sm:text-xs font-semibold flex items-center justify-center tracking-wider">💳 Kapıda Ödeme</div>
+                    <div class="swiper-slide bg-orange-500 text-white text-center text-[10px] sm:text-xs font-semibold flex items-center justify-center tracking-wider">🚚 Ücretsiz Kargo</div>
+					
+                </div>
+            </div>
             
-            <div class="card-body">
-                <div>
-                  <h3 class="card-title">${p.isim}</h3>
-                  <div class="flex items-center justify-between mt-1">
-                    <div class="stars">★★★★★ <span class="text-gray-400 text-[9px] ml-0.5">(${reviewCount})</span></div>
+            <div class="card-body !pt-2">
+                <h3 class="card-title">${p.isim}</h3>
+                
+                <!-- TRENDYOL TARZI SOSYAL KANIT SWIPER -->
+                <div class="swiper product-popularity-swiper w-full mt-0.5" style="height: 20px; overflow: hidden;">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide flex items-center gap-1 text-[9px] sm:text-[10px] overflow-hidden">
+                            <span class="text-orange-500">😊</span>
+                            <span class="text-gray-700 leading-tight">24 saatte <span class="font-bold text-orange-500">${vCount}</span> inceleme!</span>
+                        </div>
+                        <div class="swiper-slide flex items-center gap-1 text-[9px] sm:text-[10px] overflow-hidden">
+                            <span class="text-orange-500">🛒</span>
+                            <span class="text-gray-700 leading-tight"><span class="font-bold text-orange-500">${cCount}</span> sepet!</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- TRENDYOL TARZI STATIC SOSYAL KANIT -->
+                <div class="additional-info">
+                    <div class="static-social-proof-wrapper">
+                        <div class="social-proof social-proof--static">
+                            <div class="social-proof-content">
+                                <span class="emoji">🚛</span>
+                                <div class="description">
+                                    <span class="green">Hızlı teslimat</span> yapılıyor!
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- TRENDYOL TARZI YILDIZLAR VE DEĞERLENDİRME -->
+                <div class="flex items-center justify-between">
+                    <div class="review-rating">
+                        <div class="average-rating">4.9</div>
+                        <div class="rating-stars-container">
+                            <div class="star-wrapper">
+                                <img src="https://cdn.dsmcdn.com/web/assets/rating-and-review-small-star-grey.svg" width="10" class="star-empty">
+                                <div class="star-full-wrapper" style="width: 100%;"><img src="https://cdn.dsmcdn.com/web/assets/rating-and-review-small-star-orange.svg" width="10" class="star-full"></div>
+                            </div>
+                            <div class="star-wrapper">
+                                <img src="https://cdn.dsmcdn.com/web/assets/rating-and-review-small-star-grey.svg" width="10" class="star-empty">
+                                <div class="star-full-wrapper" style="width: 100%;"><img src="https://cdn.dsmcdn.com/web/assets/rating-and-review-small-star-orange.svg" width="10" class="star-full"></div>
+                            </div>
+                            <div class="star-wrapper">
+                                <img src="https://cdn.dsmcdn.com/web/assets/rating-and-review-small-star-grey.svg" width="10" class="star-empty">
+                                <div class="star-full-wrapper" style="width: 100%;"><img src="https://cdn.dsmcdn.com/web/assets/rating-and-review-small-star-orange.svg" width="10" class="star-full"></div>
+                            </div>
+                            <div class="star-wrapper">
+                                <img src="https://cdn.dsmcdn.com/web/assets/rating-and-review-small-star-grey.svg" width="10" class="star-empty">
+                                <div class="star-full-wrapper" style="width: 100%;"><img src="https://cdn.dsmcdn.com/web/assets/rating-and-review-small-star-orange.svg" width="10" class="star-full"></div>
+                            </div>
+                            <div class="star-wrapper">
+                                <img src="https://cdn.dsmcdn.com/web/assets/rating-and-review-small-star-grey.svg" width="10" class="star-empty">
+                                <div class="star-full-wrapper" style="width: 90%;"><img src="https://cdn.dsmcdn.com/web/assets/rating-and-review-small-star-orange.svg" width="10" class="star-full"></div>
+                            </div>
+                        </div>
+                        <div class="total-count">(${reviewCount})</div>
+                        <img src="https://cdn.dsmcdn.com/sfint/production/icons/camera.svg" alt="Değerlendirme fotoğrafları mevcut" class="review-photo">
+                    </div>
                     <span class="stock-badge">Stokta</span>
-                  </div>
                 </div>
 
-                <div class="card-stats">
-                  <span><i class="fa-solid fa-eye text-brand-500"></i><b>${vCount}</b></span>
-                  <span><i class="fa-solid fa-cart-shopping text-brand-500"></i><b>${cCount}</b></span>
-                </div>
-
-                <div class="card-price-wrap">
+                <!--<div class="card-price-wrap mt-1">
                   <span class="card-price">${p.fiyat} ₺</span>
                   <span class="card-old-price">${oldPrice} ₺</span>
-                </div>
+                </div>-->
 
                 <div class="mt-2 space-y-1.5 w-full bg-slate-50 p-1.5 rounded-lg border border-slate-100 flex-grow">
                     ${variantSelectorsHTML}
                 </div>
 
-                <button type="button" onclick="event.stopPropagation(); window.processAddToCart('${p.id}')" class="card-cta mt-2">
+                <button type="button" onclick="event.stopPropagation(); window.processAddToCart(this, '${p.id}')" class="card-cta mt-2">
                   <i class="fa-solid fa-bag-shopping"></i>
                   <span class="cta-text">Sepete Ekle</span>
                 </button>
             </div>
           </div>`;
       });
+      
+      // Swiperları Tetikle
+      new Swiper('.banner-swiper', { direction: 'vertical', loop: true, autoplay: { delay: 2000, disableOnInteraction: false }, allowTouchMove: false });
+      new Swiper('.product-popularity-swiper', { direction: 'vertical', loop: true, autoplay: { delay: 2500, disableOnInteraction: false }, allowTouchMove: false });
     }
 
-    window.openLightbox = (imageUrl, productName, productPrice) => {
+    window.openLightbox = (imageUrl, productName, productPrice, productId) => {
       const existingLightbox = document.querySelector('.lightbox-overlay'); if (existingLightbox) existingLightbox.remove();
       const overlay = document.createElement('div'); overlay.className = 'lightbox-overlay';
       overlay.innerHTML = `
@@ -966,19 +1417,35 @@ if (settings.heroImage) {
       overlay.addEventListener('click', () => overlay.remove());
       document.body.appendChild(overlay);
 
-      const product = allProducts.find(p => p.isim === productName);
-      if (product) TrackingAPI.viewContent(product);
+      // Lightbox açıldığında ViewContent eventi gönder
+      const product = allProducts.find(p => p.id === productId);
+      if (product) {
+        TrackingAPI.viewContent(product);
+      }
     };
 
     window.addToCart = (id, selectedVariant = '') => {
-      const product = allProducts.find(p => p.id === id); if (!product) return;
+      // 600ms Throttle (Aşırı tıklama engeli)
+      const now = Date.now();
+      if (now - lastCartTime < 600) return;
+      lastCartTime = now;
+
+      const product = allProducts.find(p => p.id === id); 
+      if (!product) return;
+      
+      // Sepete ekle işlemi
       cart.push({ ...product, cartId: Date.now(), secilenVaryant: selectedVariant });
+      
+      // AddToCart eventini yalnızca 1 kere gönder
       TrackingAPI.addToCart(product);
-      updateUI(); showToast(`✓ Seçim eklendi`, 'success');
+      
+      updateUI(); 
+      showToast(`✓ Seçim eklendi`, 'success');
     };
 
     window.removeFromCart = (cartId) => {
-      cart = cart.filter(item => item.cartId !== cartId); updateUI();
+      cart = cart.filter(item => item.cartId !== cartId); 
+      updateUI();
     };
 
     window.handleVariantChange = (cartId) => {
@@ -1030,6 +1497,8 @@ if (settings.heroImage) {
 
       if (cart.length >= min && !window._hasAutoScrolledToForm) {
           window._hasAutoScrolledToForm = true;
+          
+          // InitiateCheckout eventini gönder
           TrackingAPI.initiateCheckout(cart, calculateTotal());
 
           setTimeout(() => {
@@ -1124,7 +1593,17 @@ if (settings.heroImage) {
             email: ''
         };
 
-        const ip = await (await fetch('https://api.ipify.org?format=json')).json();
+        let ip = '0.0.0.0';
+        try {
+          const ipResponse = await fetch('https://api.ipify.org?format=json');
+          if (ipResponse.ok) {
+            const ipData = await ipResponse.json();
+            ip = ipData.ip;
+          }
+        } catch (ipError) {
+          console.warn('IP alınamadı:', ipError);
+        }
+        
         const totalTutar = calculateTotal();
         
         const orderRef = await addDoc(collection(db, "orders"), {
@@ -1138,13 +1617,19 @@ if (settings.heroImage) {
           },
           urunler: cart.map(i => ({ id: i.id, isim: i.isim, varyant: i.secilenVaryant })),
           toplamTutar: totalTutar.toFixed(2) + ' ₺',
-          ip: ip.ip, tarih: serverTimestamp(), durum: 'yeni', kaynakSite: window.AKTIF_DOMAIN || window.location.hostname  
+          ip: ip, 
+          tarih: serverTimestamp(), 
+          durum: 'yeni', 
+          kaynakSite: window.AKTIF_DOMAIN || window.location.hostname  
         });
 
+        // Purchase eventi gönder
         TrackingAPI.purchase(orderRef.id, cart, totalTutar, customerInfo);
 
-        window.showSuccessModal(); setTimeout(() => location.reload(), 15000);
+        window.showSuccessModal(); 
+        setTimeout(() => location.reload(), 15000);
       } catch (err) {
+        console.error('Sipariş hatası:', err);
         showToast('Hata oluştu, tekrar deneyin.', 'error');
         btn.disabled = false; btn.innerHTML = 'Siparişi Tamamla <i class="fa-solid fa-arrow-right ml-2"></i>';
       }
