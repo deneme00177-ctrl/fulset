@@ -4,7 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
   <title id="pageTitle">Kampanya Fırsatı</title>
- 
+  
+  
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Rubik:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <script>
@@ -96,14 +97,33 @@ const firebaseConfig = {
   <noscript id="fb-noscript"></noscript>
 
   <style>
+    /* Varsayılan Renk Paleti (Firebase gecikirse yazının ve butonların görünmesini sağlar) */
+    :root {
+      --brand-50: #fef2f2;
+      --brand-100: #fee2e2;
+      --brand-200: #fecaca;
+      --brand-300: #fca5a5;
+      --brand-400: #f87171;
+      --brand-500: #ef4444;
+      --brand-600: #dc2626;
+      --brand-700: #b91c1c;
+      --brand-800: #991b1b;
+      --brand-900: #7f1d1d;
+    }
 
-  .logo-gradient {
-  background: linear-gradient(to right, var(--brand-600), #000000);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  color: transparent;
-}
+    .logo-gradient {
+      background: linear-gradient(to right, var(--brand-600), #000000);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      color: transparent;
+    }
+
+    /* Javascript Butonları İçin Garantili Dinamik Renk Sınıfları */
+    .btn-brand-solid { background-color: var(--brand-600) !important; color: white !important; }
+    .btn-brand-solid:hover { background-color: var(--brand-700) !important; }
+    .btn-brand-gradient { background: linear-gradient(to right, var(--brand-600), #000000) !important; color: white !important; }
+
     body { font-family: 'Montserrat', sans-serif; background-color: #f9fafb; padding-bottom: 80px;}
     .input-error-message { display: none; align-items: center; gap: 6px; margin-top: 4px; font-size: 12px; color: #ef4444; font-weight: 500; }
     .input-error-message.show { display: flex; }
@@ -199,19 +219,6 @@ const firebaseConfig = {
     }
     .card-image-wrap:hover img { transform: scale(1.08); }
 
-    /* Hızlı ekle overlay - sadece hover'da görünür (masaüstü) */
-    .quick-add-overlay {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.5) 60%, transparent 100%);
-      padding: 30px 10px 10px;
-      transform: translateY(100%);
-      transition: transform 0.3s ease;
-    }
-    .product-card:hover .quick-add-overlay { transform: translateY(0); }
-
     .card-body {
       padding: 10px 12px 12px;
       display: flex;
@@ -246,7 +253,7 @@ const firebaseConfig = {
       font-weight: 800;
       font-size: 15px;
       display: inline-block;
-     border: 1px solid var(--brand-300);
+      border: 1px solid var(--brand-300);
       white-space: nowrap;
     }
     .card-old-price {
@@ -266,37 +273,6 @@ const firebaseConfig = {
     }
     .card-stats span { display: inline-flex; align-items: center; gap: 3px; }
     .card-stats b { color: #374151; }
-
-    .variant-btn {
-      min-width: 44px;
-      height: 36px;
-      background: white;
-      border: 1.5px solid #e5e7eb;
-      border-radius: 8px;
-      font-size: 11px;
-      font-weight: 800;
-      color: #111827;
-      cursor: pointer;
-      transition: all 0.2s;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      padding: 3px 6px;
-      flex-shrink: 0;
-    }
-    .variant-btn:hover {
-      background: linear-gradient(135deg, var(--brand-600), #000000);
-      color: white;
-      border-color: transparent;
-      transform: translateY(-1px);
-    }
-    .variant-btn .v-detail {
-      font-size: 8px;
-      opacity: 0.7;
-      font-weight: 600;
-      margin-top: 1px;
-    }
 
     .card-cta {
       background: linear-gradient(135deg, var(--brand-600), #000000);
@@ -351,7 +327,6 @@ const firebaseConfig = {
       .card-price { font-size: 15px; padding: 5px 9px; }
       .card-body { padding: 9px 10px 10px; gap: 6px; }
       .card-cta { padding: 9px 10px; font-size: 12px; }
-      .variant-btn { min-width: 40px; height: 34px; font-size: 10px; }
       .badge-top { font-size: 8px; padding: 3px 7px; top: 6px; left: 6px; }
       .fav-btn { width: 30px; height: 30px; font-size: 12px; top: 6px; right: 6px; }
     }
@@ -361,7 +336,6 @@ const firebaseConfig = {
       .card-title { font-size: 14px; }
       .card-price { font-size: 17px; }
       .card-body { padding: 14px; gap: 10px; }
-      .variant-btn { min-width: 52px; height: 40px; font-size: 12px; }
     }
   </style>
 </head>
@@ -544,10 +518,10 @@ const firebaseConfig = {
   <footer>
     <section class="flex flex-col items-center justify-center bg-gray-100 py-8 px-4 mt-8 border-t border-gray-200">
       <div class="grid grid-cols-2 md:grid-cols-4 gap-6 w-full max-w-5xl">
-        <div class="flex flex-col items-center text-center gap-3"><i class="fas fa-shipping-fast text-green-500 text-3xl"></i><h3 class="font-semibold text-sm">Hızlı Kargo</h3></div>
-        <div class="flex flex-col items-center text-center gap-3"><i class="fas fa-box-open text-blue-500 text-3xl"></i><h3 class="font-semibold text-sm">İade Hakkı</h3></div>
-        <div class="flex flex-col items-center text-center gap-3"><i class="fas fa-money-bill-wave text-yellow-500 text-3xl"></i><h3 class="font-semibold text-sm">Kapıda Ödeme</h3></div>
-        <div class="flex flex-col items-center text-center gap-3"><i class="fas fa-shield-halved text-purple-500 text-3xl"></i><h3 class="font-semibold text-sm">Güvenli Alışveriş</h3></div>
+        <div class="flex flex-col items-center text-center gap-3"><i class="fas fa-shipping-fast text-brand-500 text-3xl"></i><h3 class="font-semibold text-sm">Hızlı Kargo</h3></div>
+        <div class="flex flex-col items-center text-center gap-3"><i class="fas fa-box-open text-brand-500 text-3xl"></i><h3 class="font-semibold text-sm">İade Hakkı</h3></div>
+        <div class="flex flex-col items-center text-center gap-3"><i class="fas fa-money-bill-wave text-brand-500 text-3xl"></i><h3 class="font-semibold text-sm">Kapıda Ödeme</h3></div>
+        <div class="flex flex-col items-center text-center gap-3"><i class="fas fa-shield-halved text-brand-500 text-3xl"></i><h3 class="font-semibold text-sm">Güvenli Alışveriş</h3></div>
       </div>
       <div class="mt-8 text-xs text-gray-500" id="footerText">© 2026 Kampanya. Tüm hakları saklıdır.</div>
     </section>
@@ -772,7 +746,6 @@ const firebaseConfig = {
             }
           };
 		  
-		  // Temel Renk Paletleri Sözlüğü
 const themePalettes = {
     red: { 50: '#fef2f2', 100: '#fee2e2', 200: '#fecaca', 300: '#fca5a5', 400: '#f87171', 500: '#ef4444', 600: '#dc2626', 700: '#b91c1c', 800: '#991b1b', 900: '#7f1d1d' },
     pink: { 50: '#fdf2f8', 100: '#fce7f3', 200: '#fbcfe8', 300: '#f9a8d4', 400: '#f472b6', 500: '#ec4899', 600: '#db2777', 700: '#be185d', 800: '#9d174d', 900: '#831843' },
@@ -781,11 +754,9 @@ const themePalettes = {
     purple: { 50: '#faf5ff', 100: '#f3e8ff', 200: '#e9d5ff', 300: '#d8b4fe', 400: '#c084fc', 500: '#a855f7', 600: '#9333ea', 700: '#7e22ce', 800: '#6b21a8', 900: '#581c87' }
 };
 
-// Veritabanından gelen temayı oku, yoksa kırmızıyı varsayılan yap
 const selectedTheme = settings.themeColor || 'red';
 const activePalette = themePalettes[selectedTheme] || themePalettes['red'];
 
-// CSS değişkenlerini (ROOT) tarayıcıya anında uygula
 const root = document.documentElement;
 Object.keys(activePalette).forEach(shade => {
     root.style.setProperty(`--brand-${shade}`, activePalette[shade]);
@@ -815,7 +786,6 @@ Object.keys(activePalette).forEach(shade => {
           setDomIfExist('heroTag', settings.heroTag);
           setDomIfExist('campaign-desc', settings.heroDescription);
 		  
-		  // Hero resmini dinamik olarak güncelle
 if (settings.heroImage) {
     const heroImgEl = document.getElementById('heroImage');
     if (heroImgEl) {
@@ -850,6 +820,43 @@ if (settings.heroImage) {
       }
     }
 
+    window.processAddToCart = (id) => {
+        const p = allProducts.find(x => x.id === id);
+        if(!p) return;
+
+        let selectedVariants = [];
+        let isValid = true;
+
+        if (p.cokluVaryantlar && p.cokluVaryantlar.length > 0) {
+            p.cokluVaryantlar.forEach((g, gIdx) => {
+                const sel = document.getElementById(`vsel-${id}-${gIdx}`);
+                if(sel && sel.value) {
+                    selectedVariants.push(sel.value);
+                } else {
+                    sel.classList.add('border-red-400', 'bg-red-50');
+                    setTimeout(() => sel.classList.remove('border-red-400', 'bg-red-50'), 1500);
+                    isValid = false;
+                }
+            });
+        } else if (p.varyantlar && p.varyantlar.length > 0) {
+            const sel = document.getElementById(`vsel-${id}-0`);
+            if(sel && sel.value) {
+                selectedVariants.push(sel.value);
+            } else {
+                sel.classList.add('border-red-400', 'bg-red-50');
+                setTimeout(() => sel.classList.remove('border-red-400', 'bg-red-50'), 1500);
+                isValid = false;
+            }
+        }
+
+        if(!isValid) {
+            showToast('Lütfen tüm seçenekleri belirleyin', 'warning');
+            return;
+        }
+
+        window.addToCart(id, selectedVariants.join(' - '));
+    };
+
     async function loadProducts() {
       const querySnapshot = await getDocs(collection(db, "products"));
       const listDiv = document.getElementById('product-list');
@@ -864,24 +871,6 @@ if (settings.heroImage) {
 
       productsArray.forEach((p, idx) => {
         allProducts.push(p);
-        
-        let variantBoxes = (p.varyantlar || []).map(v => {
-            let size = v;
-            let detail = "";
-            const match = v.match(/\((.*?)\)\s*(.*)/);
-            if(match) {
-                size = match[1];
-                detail = match[2];
-            }
-
-            return `
-            <button type="button" onclick="event.stopPropagation(); window.addToCart('${p.id}', '${v}')" 
-                class="variant-btn shrink-0 snap-center">
-                <span class="leading-none">${size}</span>
-                ${detail ? `<span class="v-detail">${detail}</span>` : ''}
-            </button>
-            `;
-        }).join('');
 
         const vCount = p.viewCount || Math.floor(Math.random() * 5000) + 1000;
         const cCount = p.cartCount || Math.floor(Math.random() * 2000) + 500;
@@ -892,13 +881,35 @@ if (settings.heroImage) {
         if (idx < 3) {
           badgeHTML = '<div class="badge-top"><i class="fa-solid fa-fire"></i>ÇOK SATAN</div>';
         } else if (idx % 5 === 0) {
-          badgeHTML = '<div class="badge-top" style="background: linear-gradient(135deg, #10b981, #059669);"><i class="fa-solid fa-sparkles"></i>YENİ</div>';
+          badgeHTML = '<div class="badge-top"><i class="fa-solid fa-sparkles"></i>YENİ</div>';
         } else if (idx % 7 === 0) {
-          badgeHTML = '<div class="badge-top" style="background: linear-gradient(135deg, #ef4444, #dc2626);"><i class="fa-solid fa-bolt"></i>FIRSAT</div>';
+          badgeHTML = '<div class="badge-top"><i class="fa-solid fa-bolt"></i>FIRSAT</div>';
         }
 
-        const firstVariant = (p.varyantlar && p.varyantlar[0]) ? p.varyantlar[0] : '';
         const oldPrice = Math.round(p.fiyat * 1.5);
+
+        let variantSelectorsHTML = '';
+        if (p.cokluVaryantlar && p.cokluVaryantlar.length > 0) {
+            variantSelectorsHTML = p.cokluVaryantlar.map((g, gIdx) => {
+                return `
+                <div class="flex items-center gap-2">
+                    <span class="text-[10px] font-bold text-slate-500 w-12 truncate">${g.ad}:</span>
+                    <select id="vsel-${p.id}-${gIdx}" class="flex-1 px-2 py-1 text-[11px] border border-slate-200 rounded outline-none focus:border-brand-400 bg-white text-slate-700 font-semibold shadow-sm" onclick="event.stopPropagation()">
+                        <option value="">Seçiniz</option>
+                        ${g.secenekler.map(opt => `<option value="${opt}">${opt}</option>`).join('')}
+                    </select>
+                </div>`;
+            }).join('');
+        } else if (p.varyantlar && p.varyantlar.length > 0) {
+            variantSelectorsHTML = `
+            <div class="flex items-center gap-2">
+                <span class="text-[10px] font-bold text-slate-500 w-12 truncate">${p.varyantAdi || 'Seçenek'}:</span>
+                <select id="vsel-${p.id}-0" class="flex-1 px-2 py-1 text-[11px] border border-slate-200 rounded outline-none focus:border-brand-400 bg-white text-slate-700 font-semibold shadow-sm" onclick="event.stopPropagation()">
+                    <option value="">Seçiniz</option>
+                    ${p.varyantlar.map(opt => `<option value="${opt}">${opt}</option>`).join('')}
+                </select>
+            </div>`;
+        }
 
         listDiv.innerHTML += `
           <div class="product-card">
@@ -909,13 +920,6 @@ if (settings.heroImage) {
                 <i class="fa-solid fa-heart"></i>
               </button>
               <img src="${p.resim}" alt="${p.isim}" loading="lazy" />
-              
-              <div class="quick-add-overlay hidden md:block">
-                <div class="text-[10px] text-white font-bold mb-1.5 ml-1 drop-shadow-md tracking-widest uppercase"><i class="fa-solid fa-bolt text-yellow-400 mr-1"></i>Hızlı Ekle</div>
-                <div class="flex gap-1.5 overflow-x-auto pb-1 hide-scrollbar snap-x snap-mandatory" style="-webkit-overflow-scrolling: touch;">
-                    ${variantBoxes}
-                </div>
-              </div>
             </div>
             
             <div class="card-body">
@@ -937,13 +941,11 @@ if (settings.heroImage) {
                   <span class="card-old-price">${oldPrice} ₺</span>
                 </div>
 
-                <div class="md:hidden">
-                  <div class="flex gap-1.5 overflow-x-auto hide-scrollbar" style="-webkit-overflow-scrolling: touch;">
-                      ${variantBoxes}
-                  </div>
+                <div class="mt-2 space-y-1.5 w-full bg-slate-50 p-1.5 rounded-lg border border-slate-100 flex-grow">
+                    ${variantSelectorsHTML}
                 </div>
 
-                <button type="button" onclick="event.stopPropagation(); window.addToCart('${p.id}', '${firstVariant}')" class="card-cta">
+                <button type="button" onclick="event.stopPropagation(); window.processAddToCart('${p.id}')" class="card-cta mt-2">
                   <i class="fa-solid fa-bag-shopping"></i>
                   <span class="cta-text">Sepete Ekle</span>
                 </button>
@@ -1064,7 +1066,7 @@ if (settings.heroImage) {
         warningBanner.querySelector('i').className = 'fa-solid fa-circle-check text-green-500 text-lg mt-0.5';
         warningTitle.innerText = 'Siparişe Hazırsınız'; warningTitle.className = 'font-bold text-sm text-green-700';
         warningMessage.innerText = 'Harika! Siparişi onaylayabilirsiniz.';
-submitBtn.disabled = false; submitBtn.className = 'w-full btn-brand-solid font-bold py-4 px-6 rounded-lg transition-colors shadow-md'; submitBtn.innerHTML = 'Siparişi Tamamla <i class="fa-solid fa-arrow-right ml-2"></i>';
+        submitBtn.disabled = false; submitBtn.className = 'w-full btn-brand-solid font-bold py-4 px-6 rounded-lg transition-colors shadow-md'; submitBtn.innerHTML = 'Siparişi Tamamla <i class="fa-solid fa-arrow-right ml-2"></i>';
         stickyBtn.className = 'btn-brand-gradient shadow-lg px-6 py-2 rounded-full font-bold transition-all text-sm hover:scale-105'; stickyBtn.innerText = 'Siparişi Tamamla';
       }
 
