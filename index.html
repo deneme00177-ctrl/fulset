@@ -992,7 +992,7 @@ const firebaseConfig = {
         }
       },
 
-      purchase(orderId, cartItems, totalValue, customerInfo) {
+     purchase(orderId, cartItems, totalValue, customerInfo) {
         const eventId = this.generateEventId();
         
         const fbContents = cartItems.map((item, index) => ({
@@ -1008,10 +1008,14 @@ const firebaseConfig = {
           price: (index > 0 && campaignSettings.active) ? Number(campaignSettings.secondProductPrice) : Number(item.fiyat)
         }));
 
+        // Telefon numarasını E.164 formatına çevir (+905XXXXXXXXX)
+        // Regex / Validasyon kuralların numaranın '05' ile başlayıp 11 hane olduğunu zaten garanti ediyor.
+        const e164Phone = customerInfo.phone ? "+90" + customerInfo.phone.substring(1) : "";
+
         // Meta Pixel (Facebook)
         if (typeof fbq === 'function') {
           fbq('set', 'userData', {
-            ph: customerInfo.phone || '',
+            ph: e164Phone, // Sadece TikTok değil, FB için de bu format Event Match Quality skorunu artırır.
             fn: customerInfo.firstName || '',
             ln: customerInfo.lastName || '',
             ct: customerInfo.city || ''
@@ -1031,7 +1035,7 @@ const firebaseConfig = {
         // TikTok Pixel
         if (typeof ttq !== 'undefined' && window.TT_PIXEL_ID) {
           ttq.identify({
-            phone_number: customerInfo.phone || ''
+            phone_number: e164Phone // Hatanın çözüldüğü yer
           });
           
           ttq.track('CompletePayment', {
